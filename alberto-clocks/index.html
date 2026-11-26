@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Alberto Watch Company — full-service watch repair, appraisal and retail store offering the finest selection of luxury timepieces.">
+  <title>Alberto Watch Company · Fine Watches &amp; Clocks</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%2314110f' stroke='%23c19a5b' stroke-width='4'/%3E%3Cpath d='M32 14v18l11 7' stroke='%23c19a5b' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <!-- Web fonts (optional — the site falls back to system serif/sans when offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a href="#/home" class="brand" data-route="home" aria-label="Alberto Watch Company — home">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="32" cy="32" r="23" fill="none" stroke="currentColor" stroke-width="1" opacity=".5"/>
+          <path d="M20 46 L32 16 L44 46 M25 36 H39" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">Alberto</span>
+          <span class="brand-sub">Watch Company · Est. 1968</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="#/home" data-route="home">Home</a></li>
+          <li class="has-drop">
+            <a href="#/products" data-route="products" aria-haspopup="true">Products <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown" id="productsDrop"><!-- filled from JSON --></ul>
+          </li>
+          <li><a href="#/technology" data-route="technology">Technology</a></li>
+          <li><a href="#/prices" data-route="prices">Price List</a></li>
+          <li><a href="#/gallery" data-route="gallery">Gallery</a></li>
+          <li><a href="#/stores" data-route="stores">Store Locator</a></li>
+          <li><a href="#/support" data-route="support">Support</a></li>
+          <li><a href="#/about" data-route="about">About Us</a></li>
+          <li><a href="#/contact" data-route="contact">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="visitor" title="Visitors to this site">
+        <svg class="visitor-logo" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="29" fill="#14110f" stroke="#c19a5b" stroke-width="3"/>
+          <path d="M32 15v17l11 7" stroke="#c19a5b" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div class="visitor-text">
+          <span class="visitor-label">Visitors</span>
+          <span class="visitor-count" id="visitorCount">—</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= PAGES ================= -->
+  <main id="main" tabindex="-1">
+
+    <!-- HOME -->
+    <section class="page" data-page="home" aria-labelledby="home-title">
+      <div class="hero-wrap">
+        <!-- Background video: muted, loops forever, no controls -->
+        <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto"
+               disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1">
+          <source src="media/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-shade" aria-hidden="true"></div>
+
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow eyebrow-line">Repair · Appraisal · Retail</p>
+            <h1 id="home-title">Time, kept <em>beautifully</em>.</h1>
+            <p class="lead">For nearly six decades Alberto has repaired, appraised and sold the world's finest timepieces. Discover vintage treasures, modern icons and connected watches — all under one roof.</p>
+            <div class="hero-actions">
+              <a class="btn btn-gold" href="#/products">Explore the collection <span aria-hidden="true">→</span></a>
+              <a class="btn btn-ghost" href="#/support">Book a repair</a>
+            </div>
+            <ul class="hero-facts" aria-label="About Alberto">
+              <li><b>1968</b><span>Est. in New York</span></li>
+              <li><b>40k+</b><span>Watches serviced</span></li>
+              <li><b>24 mo</b><span>Repair warranty</span></li>
+            </ul>
+          </div>
+
+          <aside class="hero-time" aria-label="Live clock showing your local time">
+            <div class="hero-clock" id="heroClock"></div>
+            <div class="hero-time-text">
+              <span class="k">Your local time</span>
+              <span class="v" id="heroTime">—</span>
+            </div>
+          </aside>
+        </div>
+
+        <div class="hero-bottom">
+          <ul class="brand-strip" aria-label="Brands we carry">
+            <li>Rolex</li><li>Michael Kors</li><li>Citizen Eco-Drive</li><li>Bulova</li><li>Garmin</li>
+          </ul>
+          <a class="scroll-cue" href="#homeLineups" aria-label="Scroll to the collections"><span></span></a>
+        </div>
+      </div>
+
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">The product line-up</p>
+          <h2>Choose your collection</h2>
+        </header>
+        <div class="lineup-grid" id="homeLineups"></div>
+
+        <header class="section-head">
+          <p class="eyebrow">In the showroom</p>
+          <h2>Featured timepieces</h2>
+        </header>
+        <div class="product-grid" id="featured"></div>
+
+        <div class="split-banner">
+          <div>
+            <p class="eyebrow">Workshop</p>
+            <h2>Repairs by certified watchmakers</h2>
+            <p>Every service is pressure-tested, timed and returned with a 24-month workmanship warranty.</p>
+          </div>
+          <a class="btn btn-gold" href="#/support">See services &amp; prices</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="page" data-page="products" aria-labelledby="products-title">
+      <div class="container">
+        <header class="page-head">
+          <p class="eyebrow">Products</p>
+          <h1 id="products-title">The collection</h1>
+          <p class="lead" id="lineupDesc">Select a product line-up to see every watch and clock in it.</p>
+        </header>
+        <div class="tabs" role="tablist" id="lineupTabs"></div>
+        <p class="result-count" id="resultCount" aria-live="polite"></p>
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY -->
+    <section class="page" data-page="technology" aria-labelledby="tech-title">
+      <div class="container">
+        <header class="page-head">
+          <p class="eyebrow">Technology</p>
+          <h1 id="tech-title">What makes them tick</h1>
+          <p class="lead">From hand-wound springs to optical heart-rate sensors, here is the technology inside the watches we sell and service.</p>
+        </header>
+
+        <ul class="tech-stats" id="techStats" aria-label="Watch technology in numbers"></ul>
+
+        <div class="tech-grid" id="techGrid"></div>
+
+        <header class="section-head">
+          <p class="eyebrow">Side by side</p>
+          <h2>Which movement is right for you?</h2>
+        </header>
+        <div class="table-wrap tech-compare-wrap">
+          <table class="tech-compare" id="techCompare"></table>
+        </div>
+
+        <div class="split-banner tech-cta">
+          <div>
+            <p class="eyebrow">Still deciding?</p>
+            <h2>See a movement up close</h2>
+            <p>Visit a showroom and one of our watchmakers will open a case-back and show you how it works.</p>
+          </div>
+          <div class="tech-cta-actions">
+            <a class="btn btn-gold" href="#/stores">Find a showroom</a>
+            <a class="btn btn-ghost" href="#/products">Browse watches</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICE LIST -->
+    <section class="page" data-page="prices" aria-labelledby="prices-title">
+      <div class="container">
+        <header class="page-head">
+          <p class="eyebrow">Price list</p>
+          <h1 id="prices-title">Every watch, every price</h1>
+          <p class="lead">Prices are in US dollars and include the manufacturer's warranty. Click a row for details.</p>
+        </header>
+        <div class="toolbar">
+          <label class="field">
+            <span>Search</span>
+            <input type="search" id="priceSearch" placeholder="Name or brand…">
+          </label>
+          <label class="field">
+            <span>Line-up</span>
+            <select id="priceFilter"><option value="all">All line-ups</option></select>
+          </label>
+          <label class="field">
+            <span>Sort</span>
+            <select id="priceSort">
+              <option value="lineup">By line-up</option>
+              <option value="asc">Price: low to high</option>
+              <option value="desc">Price: high to low</option>
+              <option value="name">Name A–Z</option>
+            </select>
+          </label>
+        </div>
+        <div class="table-wrap">
+          <table class="price-table">
+            <thead><tr><th scope="col">Timepiece</th><th scope="col">Brand</th><th scope="col">Line-up</th><th scope="col">Movement</th><th scope="col" class="num">Price</th></tr></thead>
+            <tbody id="priceBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="page" data-page="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <header class="page-head">
+          <p class="eyebrow">Gallery</p>
+          <h1 id="gallery-title">In the light</h1>
+          <p class="lead">Browse the collection. Click any piece to view it large; use ← → to move between images.</p>
+        </header>
+        <div class="tabs" id="galleryTabs"></div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <!-- STORE LOCATOR -->
+    <section class="page" data-page="stores" aria-labelledby="stores-title">
+      <div class="container">
+        <header class="page-head">
+          <p class="eyebrow">Store locator</p>
+          <h1 id="stores-title">Visit a showroom</h1>
+          <p class="lead">Share your location and we'll sort our showrooms from nearest to farthest.</p>
+        </header>
+
+        <ul class="loc-stats" id="storeStats" aria-label="Our showrooms at a glance"></ul>
+
+        <div class="loc-network" id="storeNetwork" aria-label="Map of our showrooms across the United States"></div>
+
+        <div class="loc-bar">
+          <button class="btn btn-gold loc-find" id="findNearest" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="8"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg>
+            Find the nearest store
+          </button>
+          <div class="loc-filters" id="storeFilters" role="group" aria-label="Filter showrooms by service"></div>
+        </div>
+        <p class="hint loc-hint" id="storeHint" aria-live="polite"></p>
+
+        <div class="loc-layout">
+          <div class="loc-list" id="storeGrid"></div>
+          <aside class="loc-map" id="storeMap" aria-label="Map of the selected showroom"></aside>
+        </div>
+
+        <section class="loc-book" id="bookVisit" aria-labelledby="book-title">
+          <div class="loc-book-copy">
+            <p class="eyebrow">Private appointment</p>
+            <h2 id="book-title">Book a showroom visit</h2>
+            <p>Reserve one-to-one time with a specialist. We'll have your chosen pieces ready when you arrive.</p>
+            <ul class="loc-perks">
+              <li><b>One-to-one</b> time with a watch specialist</li>
+              <li><b>Free</b> battery and water-resistance check</li>
+              <li><b>On-the-spot</b> repair and appraisal quotes</li>
+            </ul>
+          </div>
+          <form class="card form loc-book-form" id="visitForm" novalidate>
+            <div class="form-row">
+              <label class="field"><span>Showroom</span><select name="showroom" id="visitStore" required></select></label>
+              <label class="field"><span>Reason for visit</span>
+                <select name="reason" required>
+                  <option value="">Choose…</option>
+                  <option>Browse the collection</option>
+                  <option>Repair or service</option>
+                  <option>Appraisal</option>
+                  <option>Smart watch help</option>
+                </select>
+              </label>
+            </div>
+            <div class="form-row">
+              <label class="field"><span>Date</span><input type="date" name="date" id="visitDate" required></label>
+              <label class="field"><span>Time</span><select name="time" id="visitTime" required></select></label>
+            </div>
+            <div class="form-row">
+              <label class="field"><span>Your name</span><input name="name" required minlength="2" autocomplete="name"></label>
+              <label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+            </div>
+            <button class="btn btn-gold" type="submit">Book my visit</button>
+            <p class="form-status" role="status"></p>
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <!-- SUPPORT -->
+    <section class="page" data-page="support" aria-labelledby="support-title">
+      <div class="container">
+        <header class="page-head">
+          <p class="eyebrow">Support</p>
+          <h1 id="support-title">Repair, service &amp; help</h1>
+          <p class="lead">Book a service, get an appraisal or find a quick answer.</p>
+        </header>
+        <div class="service-grid" id="serviceGrid"></div>
+
+        <div class="two-col">
+          <div>
+            <h2 class="h3">Frequently asked questions</h2>
+            <div class="faq" id="faqList"></div>
+          </div>
+          <form class="card form" id="repairForm" novalidate>
+            <h2 class="h3">Request a repair</h2>
+            <label class="field"><span>Your name</span><input name="name" required minlength="2" autocomplete="name"></label>
+            <label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+            <label class="field"><span>Watch brand &amp; model</span><input name="watch" required placeholder="e.g. Rolex Datejust 36"></label>
+            <label class="field"><span>Service needed</span>
+              <select name="service" id="serviceSelect" required></select>
+            </label>
+            <label class="field"><span>Describe the issue</span><textarea name="issue" rows="3" required minlength="10"></textarea></label>
+            <button class="btn btn-gold" type="submit">Send request</button>
+            <p class="form-status" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="page" data-page="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="page-head">
+          <p class="eyebrow">About us</p>
+          <h1 id="about-title">Since 1968, at the bench</h1>
+        </header>
+        <div class="about-wrap">
+          <div class="about-copy" id="aboutCopy"></div>
+          <aside class="card contact-card" id="aboutContact"></aside>
+        </div>
+        <div class="stats" id="aboutStats"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="page" data-page="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="page-head">
+          <p class="eyebrow">Contact us</p>
+          <h1 id="contact-title">We'd love to hear from you</h1>
+        </header>
+        <div class="two-col">
+          <aside class="card contact-card" id="contactCard"></aside>
+          <form class="card form" id="contactForm" novalidate>
+            <h2 class="h3">Send a message</h2>
+            <label class="field"><span>Your name</span><input name="name" required minlength="2" autocomplete="name"></label>
+            <label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+            <label class="field"><span>Phone (optional)</span><input name="phone" type="tel" pattern="[0-9+()\-\s]{7,}" autocomplete="tel"></label>
+            <label class="field"><span>Subject</span><input name="subject" id="contactSubject" required></label>
+            <label class="field"><span>Message</span><textarea name="message" rows="4" required minlength="10"></textarea></label>
+            <button class="btn btn-gold" type="submit">Send message</button>
+            <p class="form-status" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SITE MAP -->
+    <section class="page" data-page="sitemap" aria-labelledby="sitemap-title">
+      <div class="container">
+        <header class="page-head">
+          <p class="eyebrow">Site map</p>
+          <h1 id="sitemap-title">Everything on this site</h1>
+        </header>
+        <div class="sitemap" id="sitemapList"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="brand-name">Alberto</p>
+        <p class="muted" id="footerTagline"></p>
+      </div>
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          <li><a href="#/sitemap" data-route="sitemap">Site Map</a></li>
+          <li><a href="#/gallery" data-route="gallery">Gallery</a></li>
+          <li><a href="#/about" data-route="about">About Us</a></li>
+          <li><a href="#/contact" data-route="contact">Contact Us</a></li>
+        </ul>
+      </nav>
+      <p class="muted small">© <span id="year"></span> Alberto Watch Company. Student eProject — product names belong to their respective brands.</p>
+    </div>
+  </footer>
+
+  <!-- ================= TICKER ================= -->
+  <div class="ticker" aria-label="Current date, time and location">
+    <div class="ticker-track" id="tickerTrack">
+      <div class="ticker-group">
+        <span class="tk"><b>Date</b> <span data-tk="date">—</span></span>
+        <span class="tk"><b>Time</b> <span data-tk="time">—</span></span>
+        <span class="tk"><b>Location</b> <span data-tk="loc">Locating…</span></span>
+        <span class="tk"><b>Alberto</b> Free battery check with every visit</span>
+        <span class="tk"><b>New</b> Alberto Ultra-Thin Tourbillon — limited to 25 pieces</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PRODUCT POPUP ================= -->
+  <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel">
+      <button class="modal-close" type="button" data-close aria-label="Close">×</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ================= GALLERY LIGHTBOX ================= -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+    <button class="lb-btn lb-close" type="button" data-close aria-label="Close">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Previous image">‹</button>
+    <figure class="lb-figure">
+      <div class="lb-image" id="lbImage"></div>
+      <figcaption id="lbCaption"></figcaption>
+    </figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Next image">›</button>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Data fallback so the site also works when opened straight from disk (file://) -->
+  <script src="data/products.js"></script>
+  <script src="js/watch-render.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
